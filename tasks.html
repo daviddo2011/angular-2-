@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="unitList">
+<head>
+	<meta charset="UTF-8">
+	<title>Units Step 4</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class="container-fluid">
+		<h1>Units Step 5(HTML + AngularJS + Controllers Actions + Filter</h1>
+		<div ng-controller="unitListController">
+			<div class="row">
+				<div class="col-sm-6">
+					<button class="btn btn-primary btn-lg" ng-click="addUnit()" ng-disabled="!enableAdd()">
+					Add a new unit
+					</button>
+					<button class="btn btn-danger btn-lg" ng-click="clearUnits()">
+					Clear Units
+					</button>
+				</div>
+				<div class="col-sm-4 col-sm-offset-2">
+					<input class="form-controll input-lg" ng-model="searchKey" placeholder="Search?"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel-body">
+						<table class="table table-striped">
+						<tbody>
+								<tr  ng-repeat="unit in taskUnits | filter:searchKey">
+										<td ng-repeat="(key,value) in unit">{{ value }}</td>
+										
+								</tr>
+						</tbody>
+						</table>
+					</div>
+				</div>
+		
+	</div>
+</div>
+
+
+	<script src="scripts/angular.min.js"></script>
+	<script src="scripts/taskUnits.js"></script>
+
+	<script>
+	
+		angular.module('unitList',[]).controller('unitListController',UnitListController);
+		function UnitListController($scope){
+			//$scope.units = units;
+			var index = 0;
+			$scope.taskUnits =[];
+			$scope.addUnit = function(){
+				$scope.taskUnits.push(taskUnits[index++])
+			};
+			$scope.clearUnits=function(){
+				$scope.taskUnits=[];
+				index=0;
+			};
+
+			$scope.enableAdd = function(){
+				return index<taskUnits.length;
+			}
+		}
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+

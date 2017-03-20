@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="unitList">
+<head>
+	<meta charset="UTF-8">
+	<title>Units Step 4</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class="container-fluid">
+		<h1>Units Step 4(HTML + AngularJS + Controllers + Filter</h1>
+		<div ng-controller="unitListController">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-8">
+					<input class="form-controll input-lg" ng-model="searchKey" placeholder="Search?"/>
+				</div>
+			</div>
+			<div class="row">
+			<div class="col-sm-3" ng-repeat="unit in units | filter:searchKey">
+				<h2>{{unit.code}}</h2>
+				<h4>{{unit.title}}</h4>
+				<h2>{{unit.mark}}</h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	<script src="scripts/angular.min.js"></script>
+	<script src="scripts/units.js"></script>
+
+	<script>
+		angular.module('unitList',[]).controller('unitListController',UnitListController);
+		function UnitListController($scope){
+			$scope.units = units;
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+

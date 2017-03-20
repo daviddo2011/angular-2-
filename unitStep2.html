@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title> Units Step2</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class="container-fluid">
+		<h1>Units Step2 (HTML+AngularJS)</h1>
+
+		<div class="row" ng-init="units=[
+			{code: 'FIT1001',title:'Programming1',mark:99},
+			{code: 'FIT1002',title:'Programming2',mark:100},
+			{code: 'FIT1003',title:'Other Irrelevant topics',mark:50},
+			{code: 'FIT1004',title:'Other Irrelevant Topics',mark:50}]">
+
+		<div class="col-sm-3" ng-repeat="unit in units">
+			<h2 ng-repeat="(key,value) in unit">{{value}}</h2>
+		</div>
+	</div>
+</div>
+	
+
+	<script src="scripts/jquery-3.1.0.min.js"></script>
+	<script src="scripts/angular.min.js"></script>
+	<!--<script src="scripts/units.js"></script>-->
+	
+
+</body>
+</html>
